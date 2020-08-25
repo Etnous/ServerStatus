@@ -21,7 +21,7 @@ After=network.target
 [Service]
 Restart=always
 Type=simple
-ExecStart=python /home/client-linux.py SERVER=$serverIp PORT=$port USER=$username PASSWORD=$password
+ExecStart=/usr/bin/python /home/client-linux.py SERVER=$serverIp PORT=$port USER=$username PASSWORD=$password
 
 [Install]
 WantedBy=multi-user.target
