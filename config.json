@@ -1,0 +1,51 @@
+{
+    "servers": [
+        {
+            "username": "s01",
+            "name": "vps-1",
+            "type": "kvm",
+            "host": "chengdu",
+            "location": "🇨🇳",
+            "password": "USER_DEFAULT_PASSWORD",
+            "monthstart": 1
+        }
+    ],
+    "watchdog": [
+        {
+            "name": "服务器负载高监控",
+            "rule": "cpu>90&load_5>3",
+            "interval": 600,
+            "callback": "https://yourSMSurl"
+        },
+        {
+            "name": "服务器内存使用率过高监控",
+            "rule": "(memory_used/memory_total)*100>90",
+            "interval": 600,
+            "callback": "https://yourSMSurl"
+        },
+        {
+            "name": "服务器宕机告警",
+            "rule": "online4=0&online6=0",
+            "interval": 600,
+            "callback": "https://yourSMSurl"
+        },
+        {
+            "name": "DDOS和CC攻击监控",
+            "rule": "tcp_count>500",
+            "interval": 300,
+            "callback": "https://yourSMSurl"
+        },
+        {
+            "name": "服务器月出口流量999GB告警",
+            "rule": "(network_out-last_network_out)/1024/1024/1024>999",
+            "interval": 3600,
+            "callback": "https://yourSMSurl"
+        },
+        {
+            "name": "你可以组合任何已知字段的表达式",
+            "rule": "(hdd_used/hdd_total)*100>95",
+            "interval": 1800,
+            "callback": "https://yourSMSurl"
+        }
+    ]
+}
